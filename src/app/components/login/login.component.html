@@ -1,0 +1,23 @@
+<div *ngIf="serverMessage === null || serverMessage === undefined"><h2>Username or Password does not match!!</h2></div>
+<form 
+  [formGroup] = "loginForm"
+  (ngSubmit) = "onSubmit(loginForm.value)"
+>
+  <div>
+    <span>Username</span>
+    <input type="text" 
+      formControlName="username"
+      placeholder="Username"
+    >
+  </div>
+
+  <div>
+    <span>Password</span>
+    <input type="text" 
+      formControlName="password"
+      placeholder="Password"
+    >
+  </div>
+
+  <button type="submit" [disabled]="!username.valid || !password.valid">Login</button>
+</form>

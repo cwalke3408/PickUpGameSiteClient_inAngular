@@ -1,0 +1,31 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(34, 21, 21);
+}
+
+li {
+    float: right;
+}
+
+li a { 
+    display: block;
+    color: whitesmoke;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: rgb(175, 175, 175);
+}
+
+.active {
+    background-color: rgb(175, 76, 76);
+}
+
+.floatLeftTag {
+    float: right;
+}
