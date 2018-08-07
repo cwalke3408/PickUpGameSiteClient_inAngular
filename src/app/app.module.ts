@@ -14,6 +14,7 @@ import { LoginViewComponent } from './views/login-view/login-view.component';
 import { SignupViewComponent } from './views/signup-view/signup-view.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserEventsComponent } from './components/user-events/user-events.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/myEvents', pathMatch: 'full'},
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     LoginViewComponent,
     MyeventsViewComponent,
     SignupViewComponent,
-    LoginComponent
+    LoginComponent,
+    UserEventsComponent
   ],
   imports: [
     BrowserModule,

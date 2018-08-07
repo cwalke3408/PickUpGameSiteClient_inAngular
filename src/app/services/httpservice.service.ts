@@ -16,6 +16,7 @@ export class HTTPServiceService {
 
   private signupUrl = 'http://localhost:8080//newUser';
   private loginUrl = 'http://localhost:8080//login';
+  private userEvents = 'http://localhost:8080//userEvents';
 
   constructor(
     private http: HttpClient,
@@ -33,4 +34,21 @@ export class HTTPServiceService {
     return this.http.post(this.loginUrl, userCreds)
       .subscribe( data => { this.dataService.recieveBackEndMessage(data); });
   }
+
+  getUserEvents (user: any) {
+    return this.http.post(this.userEvents, user)
+      .subscribe( data => {
+        console.log('User Events');
+        console.log(data);
+        this.dataService.recieveBackEndMessage(data);
+      });
+  //   return this.http
+  //     .post(this.userEvents, user)
+  //     .toPromise()
+  //     .then(response => {
+  //       console.log('User Events');
+  //       console.log(response);
+  //     })
+  //     .catch(error => console.log(error));
+  // }
 }
