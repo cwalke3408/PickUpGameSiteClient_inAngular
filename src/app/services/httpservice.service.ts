@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from './MessageService';
 import { SignupModel } from '../models/SignupModel';
 import { DataService } from '../services/DataService';
+
+import {BehaviorSubject} from 'rxjs';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -17,6 +19,7 @@ export class HTTPServiceService {
   private signupUrl = 'http://localhost:8080//newUser';
   private loginUrl = 'http://localhost:8080//login';
   private userEvents = 'http://localhost:8080//userEvents';
+  private delEventUrl = 'http://localhost:8080//deleteEvent';
 
   constructor(
     private http: HttpClient,
@@ -36,19 +39,21 @@ export class HTTPServiceService {
   }
 
   getUserEvents (user: any) {
-    return this.http.post(this.userEvents, user)
-      .subscribe( data => {
-        console.log('User Events');
-        console.log(data);
-        this.dataService.recieveBackEndMessage(data);
-      });
-  //   return this.http
-  //     .post(this.userEvents, user)
-  //     .toPromise()
-  //     .then(response => {
-  //       console.log('User Events');
-  //       console.log(response);
-  //     })
-  //     .catch(error => console.log(error));
-  // }
+    return this.http
+      .post(this.userEvents, user)
+      .toPromise()
+      .then(response => {
+        this.dataService.recieveBackEndMessage(response);
+      })
+      .catch(error => console.log(error));
+  }
+
+  deleteEvent (data: any) {
+    return this.http
+      .post(this.delEventUrl, data)
+      .toPromise()
+      .then(response => this.dataService.recieveBackEndMessage(response))
+      .catch(error => console.log(error)
+    );
+  }
 }

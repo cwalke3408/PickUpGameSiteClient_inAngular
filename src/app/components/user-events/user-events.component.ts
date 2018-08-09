@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HTTPServiceService } from '../../services/httpservice.service';
-import { DataService } from '../../services/DataService';
 
 @Component({
   selector: 'app-user-events',
@@ -9,21 +8,21 @@ import { DataService } from '../../services/DataService';
 })
 export class UserEventsComponent implements OnInit {
 
-  userEventList: any;
+  @Input() userOwnEvents: any;
 
-  constructor(private http: HTTPServiceService, private dataService: DataService) { }
+  constructor(private http: HTTPServiceService) { }
 
-  ngOnInit() {
-    this.http.getUserEvents({username: 'abc'});
+  ngOnInit() {}
 
-    this.dataService.currentMessage.subscribe(
-      message => {
-        console.log('User Event Component');
-        console.log(message['ownEvents']);
-        this.userEventList = message['ownEvents'];
-      }
-    );
+  onDeletePress(event: any) {
+    console.log('The event deleted');
+    console.log(event);
+
+    const data = {
+      username: 'abc',
+      id: event.id // id of the event
+    };
+
+    this.http.deleteEvent(data);
   }
-
-
 }
