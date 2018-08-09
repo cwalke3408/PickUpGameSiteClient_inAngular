@@ -13,23 +13,23 @@ export class MyeventsViewComponent implements OnInit {
 
   userOwnEvents: any;
   userAttendingEvents: any;
-  // subscription: Subscription;
 
   constructor(
     private http: HTTPServiceService,
     private dataService: DataService,
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.http.getUserEvents({username: 'abc'});
 
     this.dataService.currentMessage.subscribe(
       response => {
-        // console.log(response);
-        this.userAttendingEvents = response['attendingEvents'];
-        this.userOwnEvents = response['ownEvents'];
-        // console.log(this.userAttendingEvents);
-        // console.log(this.userOwnEvents);
+        if (response['attendingEvents'] !== undefined && response['ownEvents'] !== undefined) {
+          this.userAttendingEvents = response['attendingEvents'];
+          this.userOwnEvents = response['ownEvents'];
+        } else if (response !== undefined && response !== null) {
+          this.userAttendingEvents = response;
+        }
       }
     );
   }

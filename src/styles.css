@@ -1,1 +1,185 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #379683;
+  font: Helvetica, sans-serif; }
+  body .headerBox {
+    margin-top: 25px;
+    background-color: #05386B;
+    border-radius: 8px 8px 0px 0px;
+    color: white;
+    box-shadow: 0px 3px 2px grey;
+    padding: 5px; }
+    body .headerBox h2 {
+      margin: 0px; }
+
+.NavBarBody {
+  background-color: #05386B; }
+  .NavBarBody ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #05386B;
+    overflow: hidden; }
+  .NavBarBody li {
+    float: right; }
+    .NavBarBody li a {
+      display: block;
+      color: #5CDB95;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none; }
+    .NavBarBody li a:hover {
+      background-color: #111; }
+
+.gm-style .gm-style-iw {
+  border-radius: 8px;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 120px !important;
+  display: block !important;
+  opacity: 1; }
+
+/*style the p tag*/
+.gm-style .gm-style-iw #google-popup p {
+  padding: 10px; }
+
+.gm-style div div div div div div div div {
+  background-color: rgba(255, 255, 255, 0); }
+  .gm-style div div div div div div div div > div {
+    background-color: rgba(255, 255, 255, 0) !important; }
+
+.gm-style div div div div div div div div div {
+  background-color: #EDF5E1;
+  padding: 0;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  color: black;
+  font-size: 16px; }
+
+.gm-style-iw {
+  background-color: #EDF5E1 !important;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px 1px #05386B;
+  color: #05386B !important; }
+  .gm-style-iw > div > div {
+    overflow: hidden !important; }
+
+.infoOuter .infoTitle {
+  background-color: #05386B !important;
+  color: #5CDB95; }
+  .infoOuter .infoTitle h5 {
+    padding: 2px;
+    margin: 0 !important; }
+  .infoOuter .infoTitle p {
+    background-color: #111 !important; }
+
+.formLabel {
+  width: 140px; }
+
+.formLine {
+  margin: 10px 0px;
+  width: 100%; }
+
+.loginBody {
+  padding-top: 50px;
+  text-align: center; }
+  .loginBody .loginForm {
+    text-align: center;
+    background-color: aliceblue;
+    border-radius: 8px;
+    padding: 20px; }
+    .loginBody .loginForm h2 {
+      padding-top: 0; }
+
+.myEventsBody .attendingBody {
+  background-color: #5CDB95;
+  border: 2px black solid;
+  border-radius: 4px; }
+  .myEventsBody .attendingBody .attendingElement {
+    border: 2px black solid;
+    border-radius: 4px;
+    color: #05386B;
+    background-color: aliceblue; }
+
+.FindPickUpBody .mapNews .mapBody {
+  position: relative;
+  height: 325px; }
+  .FindPickUpBody .mapNews .mapBody .mapReal {
+    position: relative;
+    border: 2px #05386B solid;
+    border-radius: 4px;
+    height: 100% !important;
+    width: 100%; }
+.FindPickUpBody .newsFeed {
+  border: 1px #05386B solid;
+  border-radius: 8px 8px 0px 0px;
+  background-color: cornsilk;
+  max-height: 660px;
+  overflow-x: hidden;
+  overflow-y: scroll; }
+  .FindPickUpBody .newsFeed .aEventBox {
+    background-color: cornsilk;
+    margin: 5px;
+    border: 1px #05386B solid;
+    box-shadow: 0px 3px 2px grey;
+    border-radius: 8px; }
+    .FindPickUpBody .newsFeed .aEventBox .textSide {
+      margin: 0;
+      padding: 0; }
+      .FindPickUpBody .newsFeed .aEventBox .textSide .cardTitle {
+        border-radius: 8px 8px 0px 0px;
+        margin: 0px;
+        padding: 5px;
+        width: 100%;
+        background-color: #5CDB95;
+        color: cornsilk; }
+    .FindPickUpBody .newsFeed .aEventBox .cardBody {
+      margin-bottom: 5px;
+      padding: 10px !important; }
+      .FindPickUpBody .newsFeed .aEventBox .cardBody .cardText p {
+        padding: 10px; }
+      .FindPickUpBody .newsFeed .aEventBox .cardBody .cardText .inputGroup ::placeholder {
+        color: #05386B; }
+    .FindPickUpBody .newsFeed .aEventBox .cardButton {
+      margin-top: 5px;
+      height: 100% !important; }
+.FindPickUpBody .modalBackDrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0;
+  z-index: 10;
+  overflow: scroll; }
+  .FindPickUpBody .modalBackDrop .modalForeDrop {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    max-width: 80%;
+    min-height: 40%;
+    margin: 10% auto 0px;
+    padding: 20px;
+    text-align: center; }
+
+/* Scroll Bar */
+/* width */
+::-webkit-scrollbar {
+  width: 5px; }
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: cornsilk; }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #05386B; }
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #05386B; }
+
+/*# sourceMappingURL=styles.css.map */

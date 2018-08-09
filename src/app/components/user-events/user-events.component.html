@@ -1,8 +1,10 @@
 <div>
-    <div *ngFor="let event of userOwnEvents">
+    <div *ngFor="let event of userEvents">
         <!-- <h4>{{event}}</h4> -->
         <h4>{{ event.title }}</h4>
         <p>{{event.description }}</p>
-        <button (click)="onDeletePress(event)">Delete</button>
+        <button *ngIf="ifOwnEvents === true" (click)="onDeletePress(event)">Delete</button>
+        <button *ngIf="ifOwnEvents === false" (click)="onDeletePress(event)">Cancel</button>
+
     </div>
 </div>

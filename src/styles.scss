@@ -1,0 +1,283 @@
+$main-back-color: #EDF5E1;
+$primary-color: #5CDB95;
+$secdary-back-color: #379683;
+$secdary-color: #05386B;
+$font-statck: Helvetica, sans-serif;
+
+body{
+    background-color: $secdary-back-color;
+    font: $font-statck;
+
+    .headerBox{
+        margin-top: 25px;
+
+        background-color: $secdary-color;
+        border-radius: 8px 8px 0px 0px;
+        color: white;
+        box-shadow: 0px 3px 2px grey;
+        padding: 5px;
+
+        h2{
+            margin: 0px;
+        }
+    }
+}
+
+.NavBarBody{
+    background-color: $secdary-color;
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        background-color: $secdary-color;
+        overflow: hidden;
+    }
+
+    li{
+        float: right;
+
+        a{
+            display: block;
+            color: $primary-color;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        a:hover{
+            background-color: #111;
+
+        }
+    }
+}
+
+.gm-style .gm-style-iw {
+    // background-color: #3C61AD !important;
+    border-radius: 8px;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 120px !important;
+    display: block !important;
+    opacity: 1;
+ } 
+
+/*style the p tag*/
+.gm-style .gm-style-iw #google-popup p{
+   padding: 10px;
+}
+
+.gm-style div div div div div div div div {
+    background-color: rgba(255, 255, 255, 0);
+    > div {
+        background-color: rgba(255, 255, 255, 0) !important;
+    }
+}
+
+.gm-style div div div div div div div div div{
+    background-color: $main-back-color;
+    padding: 0;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    color: black;
+    font-size: 16px;
+}
+
+.gm-style-iw{
+    background-color: $main-back-color !important;
+    border-radius: 8px;
+    box-shadow:  5px 5px 10px 1px $secdary-color;
+    color: $secdary-color !important;
+
+    > div{
+        > div {
+            overflow: hidden !important;
+        }
+    }
+}
+
+.infoOuter{
+    // position: relative;
+    // background-color: green !important;
+    // width: 100% !important;
+    // text-align: left;
+    // max-width: 300px;
+
+    .infoTitle{
+        background-color: $secdary-color !important;
+        color: $primary-color;
+        h5{
+            padding: 2px;
+            margin: 0 !important;
+        }
+        p{
+            background-color: #111 !important;
+        }
+    }
+}
+
+.formLabel{
+    width: 140px;
+}
+
+.formLine{
+    margin: 10px 0px;
+    width: 100%;
+}
+
+.loginBody{
+    padding-top: 50px;
+    text-align: center;
+
+    .loginForm{
+        text-align: center;
+        background-color: aliceblue;
+        border-radius: 8px;
+        padding: 20px;
+        // max-width: 500px;
+
+        h2{
+            padding-top: 0;
+        }
+    }
+}
+
+.myEventsBody{
+    .attendingBody{
+        background-color: $primary-color;
+        border: 2px black solid;
+        border-radius: 4px;
+        .attendingElement{
+            border: 2px black solid;
+            border-radius: 4px;
+            color: $secdary-color;
+            background-color: aliceblue;
+        }
+    }
+}
+
+.FindPickUpBody{
+    .mapNews{
+        // position: relative;
+
+        .mapBody{
+            position: relative;
+            height: 325px;
+
+            .mapReal{
+                position: relative;
+                border: 2px $secdary-color solid;
+                border-radius: 4px;
+                height: 100% !important;
+                width: 100%;
+                // border: $primary-color 30px solid;
+            }
+        }
+    }
+
+    .newsFeed{
+        border: 1px $secdary-color solid;
+        border-radius: 8px 8px 0px 0px;
+        background-color: cornsilk;
+        // margin: 10px 0px;
+        // margin-top: 300px !important;
+        max-height: 660px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        // box-shadow: 1px 1px 2px 2px $secdary-color;
+
+
+
+        .aEventBox{
+            background-color: cornsilk;
+            margin: 5px;
+            // padding: 20px;
+            border: 1px $secdary-color solid;
+            box-shadow: 0px 3px 2px grey;
+            border-radius: 8px;
+
+            .textSide{
+                margin: 0;
+                padding: 0;
+
+                .cardTitle{
+                    border-radius: 8px 8px 0px 0px;
+                    // border: 2px solid $secdary-color;
+                    margin: 0px;
+                    padding: 5px;
+                    width: 100%;
+                    background-color: $primary-color;
+                    color: cornsilk;
+
+                }
+            }
+
+            .cardBody{
+                margin-bottom: 5px;
+                padding: 10px !important;
+   
+                .cardText{
+                    p{ padding: 10px; }
+                    .inputGroup{
+                        ::placeholder{
+                            color: $secdary-color;
+                        }
+                    }
+                }           
+            }
+
+            .cardButton{
+                margin-top: 5px;
+                height: 100% !important;
+            }
+        }
+    }
+
+    .modalBackDrop{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0,0,0,0.3);
+        padding: 0;
+        z-index: 10;
+        overflow: scroll;
+    
+        .modalForeDrop{
+            position: relative;
+            background: white;
+            border-radius: 8px;
+            max-width: 80%;
+            min-height: 40%;
+            margin: 10% auto 0px;
+            padding: 20px;
+            text-align: center;
+    
+        }
+    }
+}
+
+
+    /* Scroll Bar */
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: cornsilk; 
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: $secdary-color; 
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: $secdary-color; 
+    }

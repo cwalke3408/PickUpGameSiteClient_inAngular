@@ -20,6 +20,7 @@ export class HTTPServiceService {
   private loginUrl = 'http://localhost:8080//login';
   private userEvents = 'http://localhost:8080//userEvents';
   private delEventUrl = 'http://localhost:8080//deleteEvent';
+  private cancelAttendURL = 'http://localhost:8080//cancelAttend';
 
   constructor(
     private http: HttpClient,
@@ -51,6 +52,15 @@ export class HTTPServiceService {
   deleteEvent (data: any) {
     return this.http
       .post(this.delEventUrl, data)
+      .toPromise()
+      .then(response => this.dataService.recieveBackEndMessage(response))
+      .catch(error => console.log(error)
+    );
+  }
+
+  cancelAttending (data: any) {
+    return this.http
+      .post(this.cancelAttendURL, data)
       .toPromise()
       .then(response => this.dataService.recieveBackEndMessage(response))
       .catch(error => console.log(error)

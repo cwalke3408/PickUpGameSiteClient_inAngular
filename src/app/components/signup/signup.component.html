@@ -1,37 +1,46 @@
-<div *ngIf="serverMessage === 0"><h2>User Created Success</h2></div>
-<div *ngIf="serverMessage === 1"><h2>Username Already Exist</h2></div>
-<div *ngIf="serverMessage === 2"><h2>Email Already Exist</h2></div>
-<div *ngIf="serverMessage === 3"><h2>Username and Email Already Exist</h2></div>
+<div class="loginBody container">
 
-<form 
-  [formGroup]='signupForm'
-  (ngSubmit)='onSubmit(signupForm.value)'
->
+  <div *ngIf="serverMessage === 0"><h2>User Created Success</h2></div>
+  <div *ngIf="serverMessage === 1"><h2>Username Already Exist</h2></div>
+  <div *ngIf="serverMessage === 2"><h2>Email Already Exist</h2></div>
+  <div *ngIf="serverMessage === 3"><h2>Username and Email Already Exist</h2></div>
 
-  <div>
-    <label>User Name</label>
-    <input formControlName="username" placeholder="User Name" type="text" id="usernameInput">
-    <span *ngIf="!username.valid && username.touched">Error</span>
-  </div>
+  <form 
+    class="loginForm col-md-offset-2 col-md-8"
+    [formGroup]='signupForm'
+    (ngSubmit)='onSubmit(signupForm.value)'
+  >
 
-  <div>
-    <label>Password</label>
-    <input formControlName="pwd" placeholder="Password" type="text" id="pwdInput">
-    <span *ngIf="!pwd.valid && pwd.touched || !signupForm.errors.passwordMatch && pwd.touched">Error</span>
-  </div>
+    <div className="loginForm col-md-offset-2 col-md-8">
+      <div class="input-group formLine">
+        <div class="formLabel input-group-addon" id="basic-addon1">
+          <span>User Name</span>
+        </div>
+        <input formControlName="username" placeholder="User Name" type="text" id="usernameInput">
+        <span *ngIf="!username.valid && username.touched">Error</span>
+      </div>
 
-  <div>
-    <label>Re-type Password</label>
-    <input formControlName="rePassword" placeholder="Re-type Password" type="text">
-    <span *ngIf="!rePassword.valid && rePassword.touched || !signupForm.errors.passwordMatch && rePassword.touched">Error</span>
-  </div>
+      <div class="input-group formLine">
+        <span class="input-group-addon formLabel">Password</span>
+        <input formControlName="pwd" class="form-control formLabel" placeholder="Password" type="text" id="pwdInput">
+        <span *ngIf="!pwd.valid && pwd.touched || !signupForm.errors.passwordMatch && pwd.touched">Error</span>
+      </div>
 
-  <div>
-    <label>Email</label>
-    <input formControlName="email" placeholder="Email" type="text">
-    <span *ngIf="!email.valid && email.touched">Error</span>
-  </div>
+      <div class="input-group formLine">
+        <span class="input-group-addon formLabel">Re-type Password</span>
+        <input formControlName="rePassword" class="form-control formLabel" placeholder="Re-type Password" type="text">
+        <span *ngIf="!rePassword.valid && rePassword.touched || !signupForm.errors.passwordMatch && rePassword.touched">Error</span>
+      </div>
 
-  <button type="submit" [disabled]="!email.valid || !rePassword.valid || !pwd.valid || !username.valid || !signupForm.errors.passwordMatch" >Sign Up</button>
+      <div class="input-group formLine">
+        <span class="input-group-addon formLabel">Email</span>
+        <input formControlName="email" class="form-control formLabel" placeholder="Email" type="text">
+        <span *ngIf="!email.valid && email.touched">Error</span>
+      </div>
 
-</form>
+      <button class="btn btn-info btn-block" type="submit" [disabled]="!email.valid || !rePassword.valid || !pwd.valid || !username.valid || !signupForm.errors.passwordMatch" >Sign Up</button>
+
+    </div>
+  </form>
+
+</div>

@@ -8,21 +8,24 @@ import { HTTPServiceService } from '../../services/httpservice.service';
 })
 export class UserEventsComponent implements OnInit {
 
-  @Input() userOwnEvents: any;
+  @Input() userEvents: any;
+  @Input() ifOwnEvents: boolean;
 
   constructor(private http: HTTPServiceService) { }
 
   ngOnInit() {}
 
   onDeletePress(event: any) {
-    console.log('The event deleted');
-    console.log(event);
 
     const data = {
       username: 'abc',
       id: event.id // id of the event
     };
 
-    this.http.deleteEvent(data);
+    if (this.ifOwnEvents) {
+      this.http.deleteEvent(data);
+    } else {
+      this.http.cancelAttending(data);
+    }
   }
 }

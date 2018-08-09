@@ -14,6 +14,7 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   passwordMatch: boolean;
   serverMessage: any;
+  setUsername: string;
 
   'username': AbstractControl;
   'rePassword': AbstractControl;
@@ -44,24 +45,15 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.currentMessage.subscribe(message => {
-      console.log('Signup Server Message');
+      this.serverMessage = message;
       console.log(message);
 
-      this.serverMessage = message;
+      if (this.setUsername !== undefined && this.setUsername !== null) {
+        localStorage.setItem('username', this.setUsername);
+        console.log(localStorage);
+      }
     });
   }
-
-  // usernameValidator(control: FormControl) {
-  //  if (!control.value.match(/^123/)) {
-  //      return {invalidUsername: true};
-  //    }
-  //  }
-
-  //  emailValidator(control: FormControl) {
-  //    if (!control.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-  //       return {invalidEmail: true};
-  //    }
-  //  }
 
    passwordValidator(AC: AbstractControl) {
     if (AC.value.pwd !== AC.value.rePassword) {
@@ -72,6 +64,8 @@ export class SignupComponent implements OnInit {
    }
 
   onSubmit(form) {
+    this.setUsername = form.username;
+
     const data = {
       username: form.username,
       password: form.pwd,
@@ -79,7 +73,5 @@ export class SignupComponent implements OnInit {
       photolink: '',
       email: form.email
     };
-
-    console.log(this.http.addNewUser(data));
   }
 }

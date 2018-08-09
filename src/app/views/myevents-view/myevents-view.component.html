@@ -1,5 +1,9 @@
 <h2>User Events</h2>
 
 <div *ngIf="userOwnEvents !== undefined && userOwnEvents !== null">
-    <app-user-events [userOwnEvents]="userOwnEvents"></app-user-events>
+    <app-user-events [userEvents]="userOwnEvents" [ifOwnEvents]="true"></app-user-events>
+</div>
+
+<div *ngIf="userOwnEvents !== undefined && userOwnEvents !== null">
+    <app-user-events [userEvents]="userAttendingEvents" [ifOwnEvents]="false"></app-user-events>
 </div>

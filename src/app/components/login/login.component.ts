@@ -34,17 +34,16 @@ export class LoginComponent implements OnInit {
   ngOnInit () {
     this.dataService.currentMessage.subscribe(
       message => {
-        console.log('Server Login message');
-        console.log(message);
         this.serverMessage = message;
+
+        if (message['username'] !== undefined) {
+          localStorage.setItem('username', message['username']);
+        }
       }
     );
   }
 
   onSubmit(loginEntries: any) {
-    console.log('Login Entries');
-    console.log(loginEntries);
-
     const data = {
       username: loginEntries.username,
       password: loginEntries.password
