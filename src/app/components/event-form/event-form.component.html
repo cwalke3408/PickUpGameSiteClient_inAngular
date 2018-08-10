@@ -1,0 +1,25 @@
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit(eventForm.value)">
+
+  <div>
+    <span>Title</span>
+    <input formControlName="title" placeholder="Title" type="text">
+  </div>
+  <div>
+    <span>Address</span>
+    <input formControlName="address" placeholder="Address" type="text">
+  </div>
+  <div>
+    <span>City</span>
+    <input formControlName="city" placeholder="City" type="text">
+  </div>
+  <div>
+    <span>Author</span>
+    <input formControlName="author" placeholder="Author" type="text">
+  </div>
+  <div>
+    <span>Time</span>
+    <input formControlName="time" placeholder="Time" type="text">
+  </div>
+
+  <button class="btn btn-info btn-block" type="submit"></button>
+</form>

@@ -4,10 +4,7 @@ import { MessageService } from './MessageService';
 import { SignupModel } from '../models/SignupModel';
 import { DataService } from '../services/DataService';
 
-import {BehaviorSubject} from 'rxjs';
-
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { NewEventModel } from '../models/NewEventModel';
 
 
 @Injectable({
@@ -21,6 +18,7 @@ export class HTTPServiceService {
   private userEvents = 'http://localhost:8080//userEvents';
   private delEventUrl = 'http://localhost:8080//deleteEvent';
   private cancelAttendURL = 'http://localhost:8080//cancelAttend';
+  private addEventURL = 'http://localhost:8080//addEvent';
 
   constructor(
     private http: HttpClient,
@@ -66,4 +64,14 @@ export class HTTPServiceService {
       .catch(error => console.log(error)
     );
   }
+
+  addOwnEvent (data: NewEventModel) {
+    return this.http
+      .post(this.addEventURL, data)
+      .toPromise()
+      .then(response => this.dataService.recieveBackEndMessage(response))
+      .catch(error => console.log(error)
+      );
+  }
+
 }

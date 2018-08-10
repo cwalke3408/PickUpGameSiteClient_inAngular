@@ -16,6 +16,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserEventsComponent } from './components/user-events/user-events.component';
 import { AttendingListComponent } from './components/attending-list/attending-list.component';
+import { EventFormComponent } from './components/event-form/event-form.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/myEvents', pathMatch: 'full'},
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     SignupViewComponent,
     LoginComponent,
     UserEventsComponent,
-    AttendingListComponent
+    AttendingListComponent,
+    EventFormComponent
   ],
   imports: [
     BrowserModule,

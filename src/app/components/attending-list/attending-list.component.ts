@@ -21,7 +21,6 @@ export class AttendingListComponent implements OnInit {
       id: event.id // id of the event
     };
 
-    this.http.deleteEvent(data);
   }
 
 }
