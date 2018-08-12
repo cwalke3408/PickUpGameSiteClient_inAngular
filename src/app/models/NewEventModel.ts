@@ -16,17 +16,18 @@ export class NewEventModel {
 
     constructor(
         title: AbstractControl,
-        location: AbstractControl,
-        city: AbstractControl,
-        author: AbstractControl,
-        time: AbstractControl
+        location: string,
+        description: AbstractControl,
+        author: string,
+        time: AbstractControl,
+        date: string
     ) {
         this.title  = title.toString();
-        this.location = location.toString();
-        this.description = city.toString();
-        this.author = author.toString();
+        this.location = location;
+        this.description = description.toString();
+        this.author = author;
         this.timedate = time.toString();
-        this.date = '';
+        this.date = date;
         this.count = 1;
         this.lat = '';
         this.lng = '';

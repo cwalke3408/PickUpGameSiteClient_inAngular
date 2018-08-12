@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HTTPServiceService } from '../../services/httpservice.service';
 import { DataService } from '../../services/DataService';
+import { MatDatepickerToggle } from '@angular/material/datepicker';
 // import {Subscription} from 'rxjs/Subscription';
 
 
@@ -13,6 +14,9 @@ export class MyeventsViewComponent implements OnInit {
 
   userOwnEvents: any;
   userAttendingEvents: any;
+
+  public show = false;
+  public buttonName = 'Add Event';
 
   constructor(
     private http: HTTPServiceService,
@@ -32,6 +36,13 @@ export class MyeventsViewComponent implements OnInit {
         }
       }
     );
+  }
+
+  toggle() {
+    this.show = !this.show;
+
+    if (this.show) { this.buttonName = 'Cancel Event';
+    } else { this.buttonName = 'Add Event'; }
   }
 
 }

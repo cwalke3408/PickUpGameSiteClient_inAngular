@@ -3,23 +3,41 @@
   <div>
     <span>Title</span>
     <input formControlName="title" placeholder="Title" type="text">
+    <span *ngIf="!title.valid && title.touched">Error</span>
   </div>
   <div>
     <span>Address</span>
     <input formControlName="address" placeholder="Address" type="text">
+    <span *ngIf="!address.valid && address.touched">Error</span>
   </div>
   <div>
     <span>City</span>
     <input formControlName="city" placeholder="City" type="text">
+    <span *ngIf="!city.valid && city.touched">Error</span>
   </div>
   <div>
-    <span>Author</span>
-    <input formControlName="author" placeholder="Author" type="text">
+    <span>State</span>
+    <input formControlName="state" placeholder="State" type="text">
+    <span *ngIf="!state.valid && state.touched">Error</span>
   </div>
   <div>
     <span>Time</span>
     <input formControlName="time" placeholder="Time" type="text">
+    <span *ngIf="!time.valid && time.touched">Error</span>
+  </div>
+  <div>
+      <span>Date</span>
+      <input formControlName="date" (click)="d.toggle()" ngbDatepicker #d="ngbDatepicker" placeholder="Date" type="text" readonly/>
+      <span *ngIf="!date.valid && date.touched">Error</span>
+    </div>
+  <div>
+    <span>Description</span>
+    <input formControlName="description" placeholder="Description" type="text">
+    <!-- <span *ngIf="!description.valid && description.touched">Error</span> -->
   </div>
 
-  <button class="btn btn-info btn-block" type="submit"></button>
+  <button 
+    [disabled]="!title.valid || !address.valid || !city.valid || !state.valid || !time.valid || !date.valid" 
+    class="btn btn-info btn-block" type="submit">
+  </button>
 </form>

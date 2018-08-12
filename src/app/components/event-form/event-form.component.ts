@@ -16,9 +16,12 @@ export class EventFormComponent implements OnInit {
 
   title: AbstractControl;
   address: AbstractControl;
-  city: AbstractControl;
+  description: AbstractControl;
   author: AbstractControl;
   time: AbstractControl;
+  city: AbstractControl;
+  state: AbstractControl;
+  date: AbstractControl;
 
   constructor(
     fb: FormBuilder,
@@ -28,31 +31,48 @@ export class EventFormComponent implements OnInit {
     this.eventForm = fb.group({
       title: ['', Validators.required],
       address: ['', Validators.required],
+      description: ['', Validators.required],
       city: ['', Validators.required],
+      state: ['', Validators.required],
       author: ['', Validators.required],
       time: ['', Validators.required],
+      date: ['', Validators.required]
     });
 
     this.title = this.eventForm.controls['title'];
     this.address = this.eventForm.controls['address'];
     this.city = this.eventForm.controls['city'];
-    this.author = this.eventForm.controls['author'];
+    this.state = this.eventForm.controls['state'];
     this.time = this.eventForm.controls['time'];
+    this.date = this.eventForm.controls['date'];
+    this.description = this.eventForm.controls['description'];
 
    }
 
   ngOnInit() {
     this.dataService.currentMessage.subscribe(
       message => {
-        console.log('Event Form Component');
-        console.log(message);
+        // console.log('Event Form Component');
+        // console.log(message);
       }
     );
   }
 
   onSubmit(entries: any) {
 
-    const eventModel: NewEventModel = new NewEventModel(entries.title, entries.address, entries.city, entries.author, entries.time);
-    this.http.addOwnEvent(eventModel);
+    if (localStorage.username !== undefined && localStorage !== null) {
+      const date = `${entries.date.day}-${entries.date.month}-${entries.date.year}`;
+      const location = `${entries.address}, ${entries.city}, ${entries.state}`;
+      const author = localStorage.username;
+      const eventModel: NewEventModel = new NewEventModel(
+        entries.title,
+        location,
+        entries.description,
+        author,
+        entries.time,
+        date
+      );
+      this.http.addOwnEvent(eventModel);
+    }
   }
 }

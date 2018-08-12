@@ -1,5 +1,7 @@
 <h2>User Events</h2>
-<app-event-form></app-event-form>
+
+<app-event-form *ngIf="show"></app-event-form>
+<button (click)="toggle()">{{ buttonName }}</button>
 
 <div *ngIf="userOwnEvents !== undefined && userOwnEvents !== null">
     <app-user-events [userEvents]="userOwnEvents" [ifOwnEvents]="true"></app-user-events>

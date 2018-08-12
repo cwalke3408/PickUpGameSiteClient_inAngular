@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppComponent } from './app.component';
@@ -35,13 +36,16 @@ const appRoutes: Routes = [
     LoginComponent,
     UserEventsComponent,
     AttendingListComponent,
-    EventFormComponent
+    EventFormComponent,
+
   ],
   imports: [
+
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
       // {enableTracing: true} // <-- debugging purposes only
