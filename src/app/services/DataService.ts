@@ -5,14 +5,18 @@ import { BehaviorSubject } from 'rxjs';
 export class DataService {
 
     private messageSource = new BehaviorSubject('Default Behavior');
-    currentMessage = this.messageSource.asObservable();
+    private geoMessageSource = new BehaviorSubject('Default Geo');
+
+    public currentMessage = this.messageSource.asObservable();
+    public currentGeoCode = this.geoMessageSource.asObservable();
 
     constructor () { }
 
     recieveBackEndMessage(message: any) {
-        console.log('Inside Recieve Back End Message');
-        console.log(message);
-
         this.messageSource.next(message);
+    }
+
+    recieveGeoCode(message: any) {
+        this.geoMessageSource.next(message);
     }
 }

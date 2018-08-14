@@ -4,15 +4,15 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class NewEventModel {
 
-    title: string;
-    timedate: string;
-    date: string;
-    location: string;
-    description: string;
-    author: string;
-    count: number;
-    lat: string;
-    lng: string;
+    public title: string;
+    public timedate: string;
+    public date: string;
+    public location: string;
+    public description: string;
+    public author: string;
+    public count: number;
+    public lat: string;
+    public lng: string;
 
     constructor(
         title: AbstractControl,
@@ -20,7 +20,9 @@ export class NewEventModel {
         description: AbstractControl,
         author: string,
         time: AbstractControl,
-        date: string
+        date: string,
+        lat: string,
+        lng: string
     ) {
         this.title  = title.toString();
         this.location = location;
@@ -29,8 +31,8 @@ export class NewEventModel {
         this.timedate = time.toString();
         this.date = date;
         this.count = 1;
-        this.lat = '';
-        this.lng = '';
+        this.lat = lat;
+        this.lng = lng;
     }
 
     getNewEventObj() {

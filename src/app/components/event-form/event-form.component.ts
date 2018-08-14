@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { HTTPServiceService } from '../../services/httpservice.service';
 import { DataService } from '../../services/DataService';
 import { NewEventModel } from '../../models/NewEventModel';
+import apiKey from '../../../key_creds';
 
 
 @Component({
@@ -47,32 +48,52 @@ export class EventFormComponent implements OnInit {
     this.date = this.eventForm.controls['date'];
     this.description = this.eventForm.controls['description'];
 
-   }
+  }
 
   ngOnInit() {
+    this.dataService.currentGeoCode.subscribe(
+      message => {
+        if (message !== 'Default Geo') {
+          if (message.results !== undefined && message.results !== null) {
+
+            const lat = message.results[0].geometry.location.lat;
+            const lng = message.results[0].geometry.location.lng;
+            const entries = this.eventForm.controls;
+
+            if (localStorage.username !== undefined && localStorage !== null) {
+              const location = `${entries.address.value}, ${entries.city.value}, ${entries.state.value}`;
+              const date = `${entries.date.value.day}-${entries.date.value.month}-${entries.date.value.year}`;
+              const author = localStorage.username;
+              const eventModel: NewEventModel = new NewEventModel(
+                entries.title.value,
+                location,
+                entries.description.value,
+                author,
+                entries.time.value,
+                date,
+                lat,
+                lng
+              );
+
+              this.http.addOwnEvent(eventModel);
+            }
+          }
+        }
+      }
+    );
+
     this.dataService.currentMessage.subscribe(
       message => {
-        // console.log('Event Form Component');
-        // console.log(message);
+        console.log('=================');
+        console.log(message);
       }
     );
   }
 
   onSubmit(entries: any) {
+    const location = `${entries.address}, ${entries.city}, ${entries.state}`;
 
-    if (localStorage.username !== undefined && localStorage !== null) {
-      const date = `${entries.date.day}-${entries.date.month}-${entries.date.year}`;
-      const location = `${entries.address}, ${entries.city}, ${entries.state}`;
-      const author = localStorage.username;
-      const eventModel: NewEventModel = new NewEventModel(
-        entries.title,
-        location,
-        entries.description,
-        author,
-        entries.time,
-        date
-      );
-      this.http.addOwnEvent(eventModel);
-    }
+    this.http.findGeoCode(location);
+
   }
 }

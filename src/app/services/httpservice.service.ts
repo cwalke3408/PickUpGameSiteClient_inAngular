@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from './MessageService';
 import { SignupModel } from '../models/SignupModel';
 import { DataService } from '../services/DataService';
+import apiKey from '../../key_creds';
 
 import { NewEventModel } from '../models/NewEventModel';
 
@@ -74,4 +75,13 @@ export class HTTPServiceService {
       );
   }
 
+  findGeoCode (location: string) {
+
+    return this.http
+      .get(`https://maps.googleapis.com/maps/api/geocode/json?address=+${location}&key=${apiKey}`)
+      .toPromise()
+      .then(response => this.dataService.recieveGeoCode(response))
+      .catch(error => console.log(error)
+    );
+  }
 }

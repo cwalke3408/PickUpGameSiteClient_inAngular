@@ -5,12 +5,12 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-
-import { AppComponent } from './app.component';
-import { MyeventsViewComponent } from './views/myevents-view/myevents-view.component';
 import { HTTPServiceService } from './services/httpservice.service';
 import { MessageService } from './services/MessageService';
 import { DataService } from './services/DataService';
+
+import { AppComponent } from './app.component';
+import { MyeventsViewComponent } from './views/myevents-view/myevents-view.component';
 import { LoginViewComponent } from './views/login-view/login-view.component';
 import { SignupViewComponent } from './views/signup-view/signup-view.component';
 import { SignupComponent } from './components/signup/signup.component';
