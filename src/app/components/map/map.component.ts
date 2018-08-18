@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import apiKey from '../../../key_creds';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-map',
@@ -8,13 +7,13 @@ import apiKey from '../../../key_creds';
 })
 export class MapComponent implements OnInit {
 
-  public key: String = `https://maps.google.com/maps/api/js?key=${apiKey}`;
-  lat = 51.678418;
-  lng = 7.809007;
+  @Input() allEvents: any;
+
+  lat = 33.9519347;
+  lng = -83.53738;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {  }
 
 }

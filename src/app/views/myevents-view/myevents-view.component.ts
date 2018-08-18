@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HTTPServiceService } from '../../services/httpservice.service';
 import { DataService } from '../../services/DataService';
-import { MatDatepickerToggle } from '@angular/material/datepicker';
-// import {Subscription} from 'rxjs/Subscription';
-
 
 @Component({
   selector: 'app-myevents-view',
@@ -14,6 +11,7 @@ export class MyeventsViewComponent implements OnInit {
 
   userOwnEvents: any;
   userAttendingEvents: any;
+  allEvents: any;
 
   public show = false;
   public buttonName = 'Add Event';
@@ -25,6 +23,7 @@ export class MyeventsViewComponent implements OnInit {
 
   ngOnInit() {
     this.http.getUserEvents({username: 'abc'});
+    this.http.getAllEvents();
 
     this.dataService.currentMessage.subscribe(
       response => {
@@ -33,6 +32,16 @@ export class MyeventsViewComponent implements OnInit {
           this.userOwnEvents = response['ownEvents'];
         } else if (response !== undefined && response !== null) {
           this.userAttendingEvents = response;
+        }
+      }
+    );
+
+    this.dataService.currentAllEvents.subscribe(
+      response => {
+        if (response !== undefined && response !== null) {
+          // console.log('-------Component All Events---------');
+          // console.log(response);
+          this.allEvents = response;
         }
       }
     );

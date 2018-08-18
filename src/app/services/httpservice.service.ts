@@ -20,6 +20,7 @@ export class HTTPServiceService {
   private delEventUrl = 'http://localhost:8080//deleteEvent';
   private cancelAttendURL = 'http://localhost:8080//cancelAttend';
   private addEventURL = 'http://localhost:8080//addEvent';
+  private allEventsURL = 'http://localhost:8080//allEvents';
 
   constructor(
     private http: HttpClient,
@@ -73,6 +74,18 @@ export class HTTPServiceService {
       .then(response => this.dataService.recieveBackEndMessage(response))
       .catch(error => console.log(error)
       );
+  }
+
+  getAllEvents () {
+    return this.http
+      .get(this.allEventsURL)
+      .toPromise()
+      .then(response => {
+        // console.log('______Service All Events_______');
+        // console.log(response);
+        this.dataService.revieveAllEvents(response); })
+      .catch(error => console.log(error)
+    );
   }
 
   findGeoCode (location: string) {
