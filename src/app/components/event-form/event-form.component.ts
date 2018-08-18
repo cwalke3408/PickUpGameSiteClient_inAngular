@@ -54,10 +54,10 @@ export class EventFormComponent implements OnInit {
     this.dataService.currentGeoCode.subscribe(
       message => {
         if (message !== 'Default Geo') {
-          if (message.results !== undefined && message.results !== null) {
+          // if (message.results !== undefined && message.results !== null) {
 
-            const lat = message.results[0].geometry.location.lat;
-            const lng = message.results[0].geometry.location.lng;
+            const lat = message['results'][0].geometry.location.lat;
+            const lng = message['results'][0].geometry.location.lng;
             const entries = this.eventForm.controls;
 
             if (localStorage.username !== undefined && localStorage !== null) {
@@ -78,7 +78,7 @@ export class EventFormComponent implements OnInit {
               this.http.addOwnEvent(eventModel);
             }
           }
-        }
+        // }
       }
     );
 

@@ -3,7 +3,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AgmCoreModule } from '@agm/core';
+import apiKey from '../key_creds';
+
+
 
 import { HTTPServiceService } from './services/httpservice.service';
 import { MessageService } from './services/MessageService';
@@ -18,6 +22,7 @@ import { LoginComponent } from './components/login/login.component';
 import { UserEventsComponent } from './components/user-events/user-events.component';
 import { AttendingListComponent } from './components/attending-list/attending-list.component';
 import { EventFormComponent } from './components/event-form/event-form.component';
+import { MapComponent } from './components/map/map.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/myEvents', pathMatch: 'full'},
@@ -37,10 +42,13 @@ const appRoutes: Routes = [
     UserEventsComponent,
     AttendingListComponent,
     EventFormComponent,
+    MapComponent,
 
   ],
   imports: [
-
+    AgmCoreModule.forRoot({
+      apiKey: apiKey
+    }),
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

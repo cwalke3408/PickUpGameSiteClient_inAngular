@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { HTTPServiceService } from '../../services/httpservice.service';
 import { DataService } from '../../services/DataService';
+import { HttpBackend } from '@angular/common/http';
 
 
 @Component({
@@ -73,5 +74,7 @@ export class SignupComponent implements OnInit {
       photolink: '',
       email: form.email
     };
+
+    this.http.addNewUser(data);
   }
 }

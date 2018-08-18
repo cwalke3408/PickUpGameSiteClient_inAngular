@@ -1,10 +1,13 @@
 
 <nav class="navBar">
-
-  <ul>
-    <li><a routerLink="/myEvents">My Events</a></li>
-    <li><a routerLink="/login">Login</a></li>
-    <li><a routerLink="/signUp">Sign Up</a></li>
+  <ul *ngIf="username !== undefined && username !== null && username !== ''">
+    <li>{{username}}</li>
+    <li><a routerLink="/myEvents">Events</a></li>
+    <li><a routerLink="/myEvents" (click)="onLogoutClick()">Log Out</a></li>    
+  </ul>
+  <ul *ngIf="username === undefined || username === null || username === ''">
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/signUp">Sign Up</a></li>
   </ul>
 </nav>
 

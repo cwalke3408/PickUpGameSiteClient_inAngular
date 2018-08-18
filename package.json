@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.3",
     "@angular/animations": "^6.1.2",
     "@angular/cdk": "^6.4.3",
     "@angular/common": "^6.0.3",
@@ -27,6 +28,7 @@
     "classlist.js": "1.1.20150312",
     "core-js": "^2.5.4",
     "jquery": "^3.3.1",
+    "ngmap": "^1.18.4",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },
