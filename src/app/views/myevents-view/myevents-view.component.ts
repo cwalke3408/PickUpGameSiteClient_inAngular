@@ -13,6 +13,8 @@ export class MyeventsViewComponent implements OnInit {
   userAttendingEvents: any;
   allEvents: any;
 
+  public showAllEvents = true;
+  public showAddEvents = false;
   public show = false;
   public buttonName = 'Add Event';
 
@@ -52,6 +54,21 @@ export class MyeventsViewComponent implements OnInit {
 
     if (this.show) { this.buttonName = 'Cancel Event';
     } else { this.buttonName = 'Add Event'; }
+  }
+
+  onAllEventClick() {
+    this.showAllEvents = true;
+    this.showAddEvents = false;
+  }
+
+  onMyEventClick() {
+    this.showAllEvents = false;
+    this.showAddEvents = false;
+  }
+
+  onAddEventClick() {
+    this.showAllEvents = false;
+    this.showAddEvents = true;
   }
 
 }

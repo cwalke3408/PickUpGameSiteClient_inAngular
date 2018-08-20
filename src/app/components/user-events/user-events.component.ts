@@ -9,7 +9,7 @@ import { HTTPServiceService } from '../../services/httpservice.service';
 export class UserEventsComponent implements OnInit {
 
   @Input() userEvents: any;
-  @Input() ifOwnEvents: boolean;
+  @Input() ifOwnEvents: string;
 
   constructor(private http: HTTPServiceService) { }
 
@@ -22,10 +22,12 @@ export class UserEventsComponent implements OnInit {
       id: event.id // id of the event
     };
 
-    if (this.ifOwnEvents) {
+    if (this.ifOwnEvents === 'own') {
       this.http.deleteEvent(data);
-    } else {
+    } else if (this.ifOwnEvents === 'my') {
       this.http.cancelAttending(data);
+    } else if (this.ifOwnEvents === 'all') {
+      console.log('INSIDE All Own Events');
     }
   }
 }

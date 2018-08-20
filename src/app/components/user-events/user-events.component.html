@@ -1,10 +1,14 @@
-<div>
-    <div *ngFor="let event of userEvents">
-        <!-- <h4>{{event}}</h4> -->
-        <h4>{{ event.title }}</h4>
-        <p>{{event.description }}</p>
-        <button *ngIf="ifOwnEvents === true" (click)="onDeletePress(event)">Delete</button>
-        <button *ngIf="ifOwnEvents === false" (click)="onDeletePress(event)">Cancel</button>
-
+    <div class="eventBody card" *ngFor="let event of userEvents">
+        <h4 class="eventTitle">{{ event.title }}</h4>
+        <div class="col-sm-9 eventDetails">
+            <div class="eventLocation">
+                <span>{{ event.location }}</span>
+            </div>
+            <span>{{ event.date }}</span>
+            <span> {{ event.time }}</span>
+        </div>
+        <div class="col-sm-3 eventButton">
+                <button *ngIf="ifOwnEvents === 'own'" (click)="onDeletePress(event)">Delete</button>
+                <button *ngIf="ifOwnEvents === 'my'" (click)="onDeletePress(event)">Cancel</button>
+        </div>
     </div>
-</div>

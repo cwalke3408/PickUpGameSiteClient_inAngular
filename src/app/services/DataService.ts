@@ -19,8 +19,8 @@ export class DataService {
     }
 
     revieveAllEvents(message: any) {
-        // console.log('========all events Response=====');
-        // console.log(message['allEvents']);
+        console.log('========all events Response=====');
+        console.log(message['allEvents']);
         this.allEventsResponse.next(message['allEvents']);
     }
 

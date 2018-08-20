@@ -1,42 +1,43 @@
 <form [formGroup]="eventForm" (ngSubmit)="onSubmit(eventForm.value)">
-  <div>
-    <span>Title</span>
-    <input formControlName="title" placeholder="Title" type="text">
-    <span *ngIf="!title.valid && title.touched">Error</span>
-  </div>
-  <div>
-    <span>Address</span>
-    <input formControlName="address" placeholder="Address" type="text">
-    <span *ngIf="!address.valid && address.touched">Error</span>
-  </div>
-  <div>
-    <span>City</span>
-    <input formControlName="city" placeholder="City" type="text">
-    <span *ngIf="!city.valid && city.touched">Error</span>
-  </div>
-  <div>
-    <span>State</span>
-    <input formControlName="state" placeholder="State" type="text">
-    <span *ngIf="!state.valid && state.touched">Error</span>
-  </div>
-  <div>
-    <span>Time</span>
-    <input formControlName="time" placeholder="Time" type="text">
-    <span *ngIf="!time.valid && time.touched">Error</span>
-  </div>
-  <div>
-      <span>Date</span>
-      <input formControlName="date" (click)="d.toggle()" ngbDatepicker #d="ngbDatepicker" placeholder="Date" type="text" readonly/>
-      <span *ngIf="!date.valid && date.touched">Error</span>
-    </div>
-  <div>
-    <span>Description</span>
-    <input formControlName="description" placeholder="Description" type="text">
-    <!-- <span *ngIf="!description.valid && description.touched">Error</span> -->
-  </div>
+	<div class="form-group row">
+		<label class="col-sm-3 offset-sm-1 inputGroup">Title</label>
+		<input class="col-sm-6" formControlName="title" placeholder="Title" type="text">
+		<label class="col-sm-2" *ngIf="!title.valid && title.touched">Error</label>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-3 offset-sm-1 inputGroup">Address</label>
+		<input class="col-sm-6" formControlName="address" placeholder="Address" type="text">
+		<label class="col-sm-2" *ngIf="!address.valid && address.touched">Error</label>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-3 offset-sm-1 inputGroup">City</label>
+		<input class="col-sm-6" formControlName="city" placeholder="City" type="text">
+		<label class="col-sm-2" *ngIf="!city.valid && city.touched">Error</label>
+	</div>
 
-  <button 
-    [disabled]="!title.valid || !address.valid || !city.valid || !state.valid || !time.valid || !date.valid" 
-    class="btn btn-info btn-block" type="submit">
-  </button>
+	<div class="form-group row">
+		<label class="col-sm-3 offset-sm-1 inputGroup">State</label>
+		<input class="col-sm-6" formControlName="state" placeholder="State" type="text">
+		<label class="col-sm-2" *ngIf="!state.valid && state.touched">Error</label>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-3 offset-sm-1 inputGroup">Time</label>
+		<input class="col-sm-6" formControlName="time" placeholder="Time" type="text">
+		<label class="col-sm-2" *ngIf="!time.valid && time.touched">Error</label>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-3 offset-sm-1 inputGroup">Date</label>
+		<input class="col-sm-6" formControlName="date" (click)="d.toggle()" ngbDatepicker #d="ngbDatepicker" placeholder="Date" type="text"
+		 readonly/>
+		<label class="col-sm-2" *ngIf="!date.valid && date.touched">Error</label>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-3 offset-sm-1 inputGroup">Description</label>
+		<input class="col-sm-6" formControlName="description" placeholder="Description" type="text">
+		<!-- <label class="col-sm-2" *ngIf="!description.valid && description.touched">Error</label> -->
+	</div>
+
+	<button [disabled]="!title.valid || !address.valid || !city.valid || !state.valid || !time.valid || !date.valid" class="btn btn-info btn-block"
+	 type="submit">
+	</button>
 </form>

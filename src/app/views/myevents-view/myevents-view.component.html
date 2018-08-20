@@ -1,14 +1,36 @@
-<h2>User Events</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 outerEventDiv">
+            <div class="row eventTop">
+                <span class="col-sm-4 eventTab" (click)="onAllEventClick()">All Events</span>
+                <span class="col-sm-4 eventTab" (click)="onMyEventClick()">My Events</span>
+                <span class="col-sm-4 eventTab" (click)="onAddEventClick()">Add Event</span>
+            </div>
 
-<app-map [allEvents]="allEvents"></app-map>
+            <div class="eventsDiv" *ngIf="!showAllEvents && !showAddEvents && userOwnEvents !== undefined && userOwnEvents !== null">
+                <app-user-events [userEvents]="userOwnEvents" [ifOwnEvents]="'own'"></app-user-events>
+            </div>
 
-<app-event-form *ngIf="show"></app-event-form>
-<button (click)="toggle()">{{ buttonName }}</button>
+            <div class="eventsDiv" *ngIf="!showAllEvents && !showAddEvents && userOwnEvents !== undefined && userOwnEvents !== null">
+                <app-user-events [userEvents]="userAttendingEvents" [ifOwnEvents]="'my'"></app-user-events>
+            </div>
 
-<div *ngIf="userOwnEvents !== undefined && userOwnEvents !== null">
-    <app-user-events [userEvents]="userOwnEvents" [ifOwnEvents]="true"></app-user-events>
-</div>
+            <div class="eventsDiv" *ngIf="showAllEvents && allEvents !== undefined && allEvents !== null" style="height: 95%;">
+                <app-user-events [userEvents]="allEvents" [ifOwnEvents]="'all'"></app-user-events>
+            </div>
 
-<div *ngIf="userOwnEvents !== undefined && userOwnEvents !== null">
-    <app-user-events [userEvents]="userAttendingEvents" [ifOwnEvents]="false"></app-user-events>
+            <div class="" *ngIf="showAddEvents">
+                <app-event-form></app-event-form>
+            </div>
+
+        </div>
+
+        <div class="col-sm-9">
+            <app-map [allEvents]="allEvents"></app-map>
+        </div>
+
+        <!-- <button (click)="toggle()">{{ buttonName }}</button> -->
+
+
+    </div>
 </div>

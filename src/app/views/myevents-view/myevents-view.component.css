@@ -1,0 +1,18 @@
+.outerEventDiv {
+    border: 1px lightblue solid;
+    background-color: rgb(34, 21, 21);
+}
+.eventsDiv {
+    padding-left: 0;
+    /* border: 2px yellow solid; */
+    /* background-color: crimson; */
+    height: 48%;
+    overflow-x: hidden;
+
+    overflow-y: scroll;
+}
+
+.eventTab {
+    text-align: center;
+    color: white;
+}
