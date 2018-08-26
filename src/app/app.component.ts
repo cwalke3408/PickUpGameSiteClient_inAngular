@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { hasLifecycleHook } from '@angular/compiler/src/lifecycle_reflector';
+import { DataService } from './services/DataService';
+
 
 @Component({
   selector: 'app-root',
@@ -10,16 +12,15 @@ export class AppComponent implements OnInit {
   title = 'app';
   public username: String;
 
-  constructor() {
-    console.log(localStorage.username);
-
-  }
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
+    this.dataService.currentUsername.subscribe(message => {
+      this.username = message;
+    });
+
     if (localStorage !== undefined) {
       if (localStorage['username'] !== undefined && localStorage['username'].length > 0) {
-        console.log(`"==========Username ======"`);
-        console.log(localStorage.username);
         this.username = localStorage.username;
       } else {
         this.username = null;
@@ -28,8 +29,7 @@ export class AppComponent implements OnInit {
   }
   onLogoutClick() {
     localStorage.setItem('username', '');
-    console.log(localStorage);
-
+    this.username = localStorage.username;
   }
 
 }

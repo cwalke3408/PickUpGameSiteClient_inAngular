@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { HTTPServiceService } from '../../services/httpservice.service';
 import { DataService } from '../../services/DataService';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     fb: FormBuilder,
     private http: HTTPServiceService,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) {
     this.loginForm = fb.group({
       'username': ['', Validators.required],
@@ -32,12 +34,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit () {
-    this.dataService.currentMessage.subscribe(
-      message => {
+    this.dataService.currentLoginRepsonse.subscribe(
+      (message: any) => {
         this.serverMessage = message;
 
-        if (message['username'] !== undefined) {
+        if (typeof message === 'object' && message !== null) {
           localStorage.setItem('username', message['username']);
+          this.dataService.recieveUsername(message['username']);
+          this.router.navigate(['/myEvents']);
         }
       }
     );

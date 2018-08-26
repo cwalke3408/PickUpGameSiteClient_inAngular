@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { HTTPServiceService } from '../../services/httpservice.service';
 import { DataService } from '../../services/DataService';
 import { HttpBackend } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -25,7 +27,8 @@ export class SignupComponent implements OnInit {
   constructor(
     fb: FormBuilder,
     private http: HTTPServiceService,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) {
 
     this.signupForm = fb.group({
@@ -52,6 +55,8 @@ export class SignupComponent implements OnInit {
       if (this.setUsername !== undefined && this.setUsername !== null) {
         localStorage.setItem('username', this.setUsername);
         console.log(localStorage);
+        this.dataService.recieveUsername(this.setUsername);
+        this.router.navigate(['/myEvents']);
       }
     });
   }

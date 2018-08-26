@@ -60,6 +60,9 @@ const appRoutes: Routes = [
     )
 
   ],
+  exports: [
+    RouterModule
+  ],
   providers: [MessageService, HTTPServiceService, DataService],
   bootstrap: [AppComponent]
 })

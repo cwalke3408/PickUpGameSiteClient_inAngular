@@ -84,8 +84,8 @@ export class EventFormComponent implements OnInit {
 
     this.dataService.currentMessage.subscribe(
       message => {
-        console.log('=================');
-        console.log(message);
+        // console.log('=================');
+        // console.log(message);
       }
     );
   }

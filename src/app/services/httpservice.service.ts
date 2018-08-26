@@ -36,7 +36,7 @@ export class HTTPServiceService {
 
   loginUser (userCreds: any) {
     return this.http.post(this.loginUrl, userCreds)
-      .subscribe( data => { this.dataService.recieveBackEndMessage(data); });
+      .subscribe( data => { this.dataService.recieveLoginResponse(data); });
   }
 
   getUserEvents (user: any) {
