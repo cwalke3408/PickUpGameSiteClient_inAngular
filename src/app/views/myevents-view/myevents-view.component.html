@@ -1,10 +1,10 @@
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid homeBody">
+    <div class="row homeDiv">
         <div class="col-sm-3 outerEventDiv">
-            <div class="row eventTop">
-                <span class="col-sm-4 eventTab" (click)="onAllEventClick()">All Events</span>
-                <span class="col-sm-4 eventTab" (click)="onMyEventClick()">My Events</span>
-                <span class="col-sm-4 eventTab" (click)="onAddEventClick()">Add Event</span>
+            <div  class="row eventTop">
+                <span [className]="allTab" (click)="onAllEventClick()">All Events</span>
+                <span [className]="myTab" (click)="onMyEventClick()">My Events</span>
+                <span class="col-sm-4 eventTab" [className]="addTab" (click)="onAddEventClick()">Add Event</span>
             </div>
 
             <div class="eventsDiv" *ngIf="!showAllEvents && !showAddEvents && userOwnEvents !== undefined && userOwnEvents !== null">

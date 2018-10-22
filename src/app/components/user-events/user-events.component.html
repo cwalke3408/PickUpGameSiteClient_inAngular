@@ -1,3 +1,9 @@
+<div>
+<div class="subTitle">
+        <p *ngIf="ifOwnEvents === 'own'">Own Events</p>
+        <p *ngIf="ifOwnEvents === 'my'">My Events</p>
+        <p *ngIf="ifOwnEvents === 'all'">All Events</p>
+    </div>
     <div class="eventBody card" *ngFor="let event of userEvents">
         <h4 class="eventTitle">{{ event.title }}</h4>
         <div class="col-sm-9 eventDetails">
@@ -11,4 +17,5 @@
                 <button *ngIf="ifOwnEvents === 'own'" (click)="onDeletePress(event)">Delete</button>
                 <button *ngIf="ifOwnEvents === 'my'" (click)="onDeletePress(event)">Cancel</button>
         </div>
+    </div>
     </div>

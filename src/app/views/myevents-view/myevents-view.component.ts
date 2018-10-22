@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { HTTPServiceService } from '../../services/httpservice.service';
 import { DataService } from '../../services/DataService';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-myevents-view',
@@ -12,6 +13,10 @@ export class MyeventsViewComponent implements OnInit {
   userOwnEvents: any;
   userAttendingEvents: any;
   allEvents: any;
+
+  addTab = 'offTab';
+  myTab = 'offTab';
+  allTab = 'onTab';
 
   public showAllEvents = true;
   public showAddEvents = false;
@@ -57,16 +62,25 @@ export class MyeventsViewComponent implements OnInit {
   }
 
   onAllEventClick() {
+    this.allTab = 'onTab';
+    this.myTab = 'offTab';
+    this.addTab = 'offTab';
     this.showAllEvents = true;
     this.showAddEvents = false;
   }
 
   onMyEventClick() {
+    this.myTab = 'onTab';
+    this.allTab = 'offTab';
+    this.addTab = 'offTab';
     this.showAllEvents = false;
     this.showAddEvents = false;
   }
 
   onAddEventClick() {
+    this.addTab = 'onTab';
+    this.myTab = 'offTab';
+    this.allTab = 'offTab';
     this.showAllEvents = false;
     this.showAddEvents = true;
   }
