@@ -93,10 +93,10 @@ body {
   padding-top: 50px;
   text-align: center; }
   .loginBody .loginForm {
-    text-align: center;
     background-color: aliceblue;
     border-radius: 8px;
-    padding: 20px; }
+    padding: 20px;
+    display: inline-block; }
     .loginBody .loginForm h2 {
       padding-top: 0; }
 
@@ -111,10 +111,8 @@ body {
     background-color: aliceblue; }
 
 .FindPickUpBody .mapNews .mapBody {
-  position: relative;
-  height: 325px; }
+  height: 125px; }
   .FindPickUpBody .mapNews .mapBody .mapReal {
-    position: relative;
     border: 2px #05386B solid;
     border-radius: 4px;
     height: 100% !important;
@@ -188,5 +186,13 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #05386B; }
+
+.spanLabel {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px 0px 0px 4px;
+  padding-top: 8px;
+  font-size: 14px;
+  text-align: center; }
 
 /*# sourceMappingURL=styles.css.map */

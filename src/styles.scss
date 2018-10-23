@@ -140,11 +140,11 @@ body{
     text-align: center;
 
     .loginForm{
-        text-align: center;
         background-color: aliceblue;
         border-radius: 8px;
         padding: 20px;
         // max-width: 500px;
+        display: inline-block;
 
         h2{
             padding-top: 0;
@@ -288,4 +288,13 @@ body{
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
         background: $secdary-color; 
+    }
+
+    .spanLabel {
+        background-color: #eee;
+        border: 1px solid #ccc;
+        border-radius: 4px 0px 0px 4px;
+        padding-top: 8px;
+        font-size: 14px;
+        text-align: center;
     }

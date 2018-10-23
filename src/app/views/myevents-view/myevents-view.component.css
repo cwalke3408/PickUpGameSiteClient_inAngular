@@ -6,22 +6,17 @@ html, body {
 }
 
 .homeDiv {
-    border: 1px red solid;
     position: absolute;
     height: 100%;
     width: 100%;
 }
 .outerEventDiv {
-    border: 1px lightblue solid;
-    background-color: rgb(34, 21, 21);
+    background-color: #05386B;
 }
 .eventsDiv {
     padding-left: 0;
-    /* border: 2px yellow solid; */
-    /* background-color: crimson; */
     height: 48%;
     overflow-x: hidden;
-
     overflow-y: scroll;
 }
 

@@ -5,6 +5,7 @@
   <div *ngIf="serverMessage === 2"><h2>Email Already Exist</h2></div>
   <div *ngIf="serverMessage === 3"><h2>Username and Email Already Exist</h2></div>
 
+  <h2>Register</h2>
   <form 
     class="loginForm col-md-offset-2 col-md-8"
     [formGroup]='signupForm'
@@ -13,27 +14,27 @@
 
     <div className="loginForm col-md-offset-2 col-md-8">
       <div class="input-group formLine">
-        <div class="formLabel input-group-addon" id="basic-addon1">
+        <div class="formLabel spanLabel" id="basic-addon1">
           <span>User Name</span>
         </div>
-        <input formControlName="username" placeholder="User Name" type="text" id="usernameInput">
+        <input formControlName="username" class="form-control formLabel" placeholder="User Name" type="text" id="usernameInput">
         <span *ngIf="!username.valid && username.touched">Error</span>
       </div>
 
       <div class="input-group formLine">
-        <span class="input-group-addon formLabel">Password</span>
-        <input formControlName="pwd" class="form-control formLabel" placeholder="Password" type="text" id="pwdInput">
+        <span class="spanLabel formLabel">Password</span>
+        <input formControlName="pwd" class="form-control formLabel" placeholder="Password" type="password" id="pwdInput">
         <span *ngIf="!pwd.valid && pwd.touched || !signupForm.errors.passwordMatch && pwd.touched">Error</span>
       </div>
 
       <div class="input-group formLine">
-        <span class="input-group-addon formLabel">Re-type Password</span>
-        <input formControlName="rePassword" class="form-control formLabel" placeholder="Re-type Password" type="text">
+        <span class="spanLabel formLabel">Re-type Password</span>
+        <input formControlName="rePassword" class="form-control formLabel" placeholder="Re-type Password" type="password">
         <span *ngIf="!rePassword.valid && rePassword.touched || !signupForm.errors.passwordMatch && rePassword.touched">Error</span>
       </div>
 
       <div class="input-group formLine">
-        <span class="input-group-addon formLabel">Email</span>
+        <span class="spanLabel formLabel">Email</span>
         <input formControlName="email" class="form-control formLabel" placeholder="Email" type="text">
         <span *ngIf="!email.valid && email.touched">Error</span>
       </div>
